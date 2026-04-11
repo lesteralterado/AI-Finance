@@ -23,6 +23,7 @@ export function useFramePreloader({
   const loadedRef = useRef(false)
 
   useEffect(() => {
+    // Guard against double-loading in development React strict mode
     if (loadedRef.current) return
     loadedRef.current = true
 
@@ -40,7 +41,7 @@ export function useFramePreloader({
         setProgress(loadedCount / frameCount)
         
         if (loadedCount === frameCount) {
-          setImages(imageElements)
+          setImages([...imageElements])
           setIsLoaded(true)
         }
       }
@@ -51,11 +52,14 @@ export function useFramePreloader({
         setProgress(loadedCount / frameCount)
         
         if (loadedCount === frameCount) {
-          setImages(imageElements)
+          setImages([...imageElements])
           setIsLoaded(true)
         }
       }
     }
+
+    // Cleanup function not needed - we want these images to stay in memory
+    return undefined
   }, [frameCount, framePrefix])
 
   return { images, progress, isLoaded }

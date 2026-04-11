@@ -35,7 +35,7 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity1, x: x1 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
+        <div className="bg-black/60 p-4 rounded-lg">
           <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
             NEXUSFI CORE ARCHITECTURE
           </span>
@@ -54,7 +54,7 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity2, x: x2 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
+        <div className="bg-black/60 p-4 rounded-lg">
           <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
             LAYER SEPARATION
           </span>
@@ -73,7 +73,7 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity3, y: y3 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
+        <div className="bg-black/60 p-4 rounded-lg">
           <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
             ASSET ARCHITECTURE
           </span>
@@ -92,7 +92,7 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity4, scale: scale4 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
+        <div className="bg-black/60 p-4 rounded-lg">
           <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
             FULLY OPERATIONAL
           </span>

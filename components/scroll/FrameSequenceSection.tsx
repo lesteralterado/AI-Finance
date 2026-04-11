@@ -17,7 +17,8 @@ function LoadingState() {
     setProgress(loadedProgress)
   }, [loadedProgress])
 
-  if (isLoaded) return null
+  // Always render the component content, use opacity to hide instead of early return
+  // This ensures hooks are always called consistently
 
   return (
     <motion.div

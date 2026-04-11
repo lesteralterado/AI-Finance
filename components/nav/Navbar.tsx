@@ -3,8 +3,10 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import Link from 'next/link'
+import { useSignupModal } from '@/hooks/useSignupModal'
 
 export default function Navbar() {
+  const { openModal, isSubmitted } = useSignupModal()
   const [isScrolled, setIsScrolled] = useState(false)
   const { scrollY } = useScroll()
 
@@ -57,8 +59,11 @@ export default function Navbar() {
             <button className="hidden md:block text-text-body text-sm hover:text-text-heading transition-colors">
               Sign in
             </button>
-            <button className="bg-text-heading text-background font-body font-medium text-sm px-5 py-2.5 rounded-sm hover:bg-white/90 transition-colors">
-              Get started
+            <button 
+              onClick={openModal}
+              className="bg-text-heading text-background font-body font-medium text-sm px-5 py-2.5 rounded-sm hover:bg-white/90 transition-colors"
+            >
+              {isSubmitted ? 'Welcome!' : 'Get started'}
             </button>
           </div>
         </div>

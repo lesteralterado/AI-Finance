@@ -10,6 +10,7 @@ import {
   pulseGlow,
   staggerChildren 
 } from '@/lib/motion-variants'
+import { useSignupModal } from '@/hooks/useSignupModal'
 
 const floatingShapes = [
   { size: 280, x: '-35%', y: '-30%', delay: 0, duration: 20 },
@@ -21,6 +22,8 @@ const floatingShapes = [
 const gridLines = Array.from({ length: 12 }, (_, i) => i)
 
 export default function HeroSection() {
+  const { openModal, isSubmitted } = useSignupModal()
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-20 overflow-hidden">
       {/* Background gradient spotlight */}
@@ -127,10 +130,11 @@ export default function HeroSection() {
             variants={fadeInUp}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={openModal}
             className="group relative px-8 py-3.5 bg-accent-white text-background font-medium text-sm rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/20"
           >
             <span className="relative z-10 flex items-center gap-2">
-              Get Started
+              {isSubmitted ? 'Welcome!' : 'Get Started'}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </span>
             <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan to-accent-teal opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

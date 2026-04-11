@@ -2,8 +2,11 @@
 
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import { useState } from 'react'
+import { useSignupModal } from '@/hooks/useSignupModal'
 
 export default function CTABanner() {
+  const { openModal, isSubmitted } = useSignupModal()
+  
   const mouseX = useMotionValue(0)
   const mouseY = useMotionValue(0)
 
@@ -40,6 +43,7 @@ export default function CTABanner() {
 
             <div className="flex flex-col items-center lg:items-end gap-2">
               <motion.button
+                onClick={openModal}
                 className="bg-text-heading text-background font-body font-medium px-8 py-4 rounded-sm hover:bg-white/90 transition-colors"
                 style={{
                   transform: isHovered ? `perspective(1000px) rotateX(${rotateX.get()}deg) rotateY(${rotateY.get()}deg)` : 'none',
@@ -48,7 +52,7 @@ export default function CTABanner() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Get started
+                {isSubmitted ? 'Welcome!' : 'Get started'}
               </motion.button>
               <span className="font-mono text-xs text-text-muted">
                 No credit card required

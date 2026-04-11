@@ -6,6 +6,7 @@ import HeroSection from '@/components/hero/HeroSection'
 import ServicesSection from '@/components/services/ServicesSection'
 import CTABanner from '@/components/cta/CTABanner'
 import Footer from '@/components/footer/Footer'
+import SignupModal from '@/components/modals/SignupModal'
 
 const FrameSequenceSection = dynamic(
   () => import('@/components/scroll/FrameSequenceSection'),
@@ -26,6 +27,7 @@ const FrameSequenceSection = dynamic(
 export default function Home() {
   return (
     <main id="main" className="min-h-screen bg-background">
+      <SignupModal />
       <Navbar />
       
       <HeroSection />
