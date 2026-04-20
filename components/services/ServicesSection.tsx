@@ -51,39 +51,39 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="py-24 px-6 border-t border-border-subtle">
+    <section id="services" className="py-24 px-6 bg-c-black border-t border-c-800">
       <div className="max-w-6xl mx-auto">
-        <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-6">
+        <span className="font-mono text-xs text-c-500 uppercase tracking-widest block mb-6">
           What We Provide
         </span>
         
-        <h2 className="font-display font-extrabold text-text-heading text-4xl md:text-5xl leading-tight mb-16 max-w-2xl">
+        <h2 className="font-display font-extrabold text-c-white text-4xl md:text-5xl leading-tight mb-16 max-w-2xl">
           Financial intelligence, built for scale.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border-subtle border border-border-subtle">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-c-800 border border-c-800">
           {services.map((service, index) => (
             <motion.div
               key={service.number}
-              className="group p-8 hover:bg-white/[0.04] transition-colors duration-300 relative"
-              initial={{ opacity: 0, y: 20 }}
+              className="group p-8 bg-c-black hover:bg-c-900 transition-all duration-200 relative"
+              initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+              transition={{ delay: index * 0.08, duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="absolute top-0 left-0 right-0 h-[1px] bg-transparent group-hover:bg-accent-white transition-colors duration-300" />
+              <div className="absolute top-0 left-0 right-0 h-[1px] bg-transparent group-hover:bg-c-500 transition-colors duration-200" />
               
-              <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
+              <span className="font-mono text-xs text-c-600 uppercase tracking-widest block mb-4">
                 {service.number}
               </span>
               
-              <service.icon className="w-8 h-8 text-text-heading mb-4" strokeWidth={1} />
+              <service.icon className="w-8 h-8 text-c-400 mb-4 group-hover:text-c-200 transition-colors duration-200" strokeWidth={1} />
               
-              <h3 className="font-display font-bold text-text-heading text-xl mb-3">
+              <h3 className="font-display font-bold text-c-200 text-xl mb-3 group-hover:text-c-white transition-colors duration-200">
                 {service.title}
               </h3>
               
-              <p className="font-body font-light text-text-body leading-relaxed text-sm">
+              <p className="font-body font-light text-c-500 leading-relaxed text-sm">
                 {service.description}
               </p>
             </motion.div>

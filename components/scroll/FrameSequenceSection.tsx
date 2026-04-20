@@ -21,21 +21,21 @@ function LoadingState() {
 
   return (
     <motion.div
-      className="absolute inset-0 bg-background flex flex-col items-center justify-center z-10"
+      className="absolute inset-0 bg-c-black flex flex-col items-center justify-center z-10"
       initial={{ opacity: 1 }}
       animate={{ opacity: isLoaded ? 0 : 1 }}
       transition={{ duration: 0.5 }}
     >
-      <span className="font-mono text-xs text-text-muted uppercase tracking-widest mb-6">
+      <span className="font-mono text-xs text-c-500 uppercase tracking-widest mb-6">
         Initializing
       </span>
-      <div className="w-48 h-[1px] bg-border-subtle overflow-hidden">
+      <div className="w-48 h-[1px] bg-c-700 overflow-hidden">
         <motion.div 
-          className="h-full bg-accent-white"
+          className="h-full bg-c-white"
           style={{ width: `${progress * 100}%` }}
         />
       </div>
-      <span className="font-mono text-xs text-text-muted mt-3">
+      <span className="font-mono text-xs text-c-500 mt-3">
         {Math.round(progress * FRAME_COUNT)} / {FRAME_COUNT}
       </span>
     </motion.div>
@@ -89,10 +89,10 @@ function FrameSequenceInner() {
         </div>
 
         <motion.div 
-          className="absolute bottom-0 left-0 right-0 h-[1px] bg-border-subtle"
+          className="absolute bottom-0 left-0 right-0 h-[1px] bg-c-800"
         >
           <motion.div 
-            className="h-full bg-accent-white"
+            className="h-full bg-c-white"
             style={{ width: progressWidth }}
           />
         </motion.div>
@@ -110,7 +110,7 @@ export const FrameSequenceSectionNoSSR = dynamic(
   { 
     ssr: false,
     loading: () => (
-      <div className="relative w-full aspect-video max-w-[1100px] mx-auto bg-background animate-pulse" />
+      <div className="relative w-full aspect-video max-w-[1100px] mx-auto bg-c-black animate-pulse" />
     )
   }
 )

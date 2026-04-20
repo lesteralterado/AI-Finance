@@ -35,14 +35,14 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity1, x: x1 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
-          <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
+        <div className="bg-c-black/50 p-1">
+          <span className="font-mono text-xs text-c-500 uppercase tracking-widest block mb-4">
             NEXUSFI CORE ARCHITECTURE
           </span>
-          <h3 className="font-display font-extrabold text-text-heading text-3xl leading-tight mb-4">
+          <h3 className="font-display font-extrabold text-c-white text-3xl leading-tight mb-4">
             AI Financial Core
           </h3>
-          <p className="font-body font-light text-text-body leading-relaxed">
+          <p className="font-body font-light text-c-300 leading-relaxed">
             A single unified intelligence engine managing capital at institutional scale.
           </p>
         </div>
@@ -54,14 +54,14 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity2, x: x2 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
-          <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
+        <div className="bg-c-black/50 p-1">
+          <span className="font-mono text-xs text-c-500 uppercase tracking-widest block mb-4">
             LAYER SEPARATION
           </span>
-          <h3 className="font-display font-extrabold text-text-heading text-3xl leading-tight mb-4">
+          <h3 className="font-display font-extrabold text-c-white text-3xl leading-tight mb-4">
             Separating Intelligence Layers
           </h3>
-          <p className="font-body font-light text-text-body leading-relaxed">
+          <p className="font-body font-light text-c-300 leading-relaxed">
             Seven distinct layers of financial technology, each precision-engineered for one purpose.
           </p>
         </div>
@@ -73,14 +73,14 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity3, y: y3 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
-          <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
+        <div className="bg-c-black/50 p-1">
+          <span className="font-mono text-xs text-c-500 uppercase tracking-widest block mb-4">
             ASSET ARCHITECTURE
           </span>
-          <h3 className="font-display font-extrabold text-text-heading text-3xl leading-tight mb-4">
+          <h3 className="font-display font-extrabold text-c-white text-3xl leading-tight mb-4">
             Gold · Capital · Data · Assets
           </h3>
-          <p className="font-body font-light text-text-body leading-relaxed">
+          <p className="font-body font-light text-c-300 leading-relaxed">
             From physical gold reserves to neural processing — every layer of value, visible.
           </p>
         </div>
@@ -92,14 +92,14 @@ export default function ScrollOverlay({ containerRef }: ScrollOverlayProps) {
         style={{ opacity: opacity4, scale: scale4 }}
         aria-hidden="true"
       >
-        <div className="bg-black/50 p-1">
-          <span className="font-mono text-xs text-text-muted uppercase tracking-widest block mb-4">
+        <div className="bg-c-black/50 p-1">
+          <span className="font-mono text-xs text-c-500 uppercase tracking-widest block mb-4">
             FULLY OPERATIONAL
           </span>
-          <h3 className="font-display font-extrabold text-text-heading text-4xl leading-tight mb-4">
+          <h3 className="font-display font-extrabold text-c-white text-4xl leading-tight mb-4">
             Architecture Revealed.
           </h3>
-          <p className="font-body font-light text-text-body leading-relaxed">
+          <p className="font-body font-light text-c-300 leading-relaxed">
             The complete financial intelligence stack — assembled, secured, and deployed.
           </p>
         </div>

@@ -6,10 +6,6 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
-  --accent-cyan: #00F5D4;
-  --accent-teal: #00BBF9;
-  --accent-violet: #9B5DE5;
-  --accent-magenta: #F15BB5;
 }
 
 html {
@@ -47,6 +43,19 @@ body {
 ::selection {
   background: rgba(255, 255, 255, 0.2);
   color: rgba(255, 255, 255, 0.92);
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 40s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

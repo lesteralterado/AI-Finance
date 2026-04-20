@@ -16,7 +16,7 @@ export default function Navbar() {
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? 'bg-black/80 backdrop-blur-xl border-b border-border-subtle' 
+          ? 'bg-c-black/80 backdrop-blur-xl border-b border-c-800' 
           : 'bg-transparent'
       }`}
       initial={{ y: -100 }}
@@ -27,7 +27,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 lg:h-20">
           <Link 
             href="/" 
-            className="text-text-heading font-display font-extrabold text-xl tracking-tight"
+            className="text-c-white font-display font-extrabold text-xl tracking-tight"
           >
             NexusFi
           </Link>
@@ -35,29 +35,29 @@ export default function Navbar() {
           <div className="hidden md:flex items-center justify-center gap-8">
             <Link 
               href="#technology" 
-              className="text-text-body text-sm hover:text-text-heading transition-colors"
+              className="text-c-300 text-sm hover:text-c-white transition-colors"
             >
               Technology
             </Link>
             <Link 
               href="#services" 
-              className="text-text-body text-sm hover:text-text-heading transition-colors"
+              className="text-c-300 text-sm hover:text-c-white transition-colors"
             >
               Services
             </Link>
             <Link 
               href="#contact" 
-              className="text-text-body text-sm hover:text-text-heading transition-colors"
+              className="text-c-300 text-sm hover:text-c-white transition-colors"
             >
               Contact
             </Link>
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="hidden md:block text-text-body text-sm hover:text-text-heading transition-colors">
+            <button className="hidden md:block text-c-300 text-sm hover:text-c-white transition-colors">
               Sign in
             </button>
-            <button className="bg-text-heading text-background font-body font-medium text-sm px-5 py-2.5 rounded-sm hover:bg-white/90 transition-colors">
+            <button className="bg-c-white text-c-black font-body font-medium text-sm px-5 py-2.5 hover:bg-c-100 transition-colors">
               Get started
             </button>
           </div>
