@@ -50,13 +50,13 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="space-y-1">
-            <h1 className="font-display font-extrabold text-c-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+            <h1 className="font-display font-extrabold text-c-white text-2xl md:text-3xl lg:text-4xl leading-[0.95] tracking-tight">
               Where Money
             </h1>
-            <h1 className="font-display font-extrabold text-c-white text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+            <h1 className="font-display font-extrabold text-c-white text-2xl md:text-3xl lg:text-4xl leading-[0.95] tracking-tight">
               Meets Machine
             </h1>
-            <h1 className="font-display font-extrabold text-c-500 text-4xl md:text-5xl lg:text-6xl leading-[0.95] tracking-tight">
+            <h1 className="font-display font-extrabold text-c-500 text-2xl md:text-3xl lg:text-4xl leading-[0.95] tracking-tight">
               Intelligence.
             </h1>
           </motion.div>
