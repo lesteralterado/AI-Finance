@@ -10,11 +10,13 @@ const stats = [
 ];
 
 const Stats = () => {
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     const videoSrc = 'https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8';
+
+    if (!video) return;
 
     if (Hls.isSupported()) {
       const hls = new Hls();
