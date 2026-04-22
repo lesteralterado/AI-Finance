@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { ChevronDown, ArrowRight } from 'lucide-react'
+import { useEffect, useRef } from 'react';
+import Hls from 'hls.js';
 import { 
   staggerContainer, 
   bounceChevron,
@@ -22,8 +24,58 @@ const stats = [
 ]
 
 export default function HeroSection() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    const videoSrc = 'https://stream.mux.com/NcU3HlHeF7CUL86azTTzpy3Tlb00d6iF3BmCdFslMJYM.m3u8';
+
+    if (Hls.isSupported()) {
+      const hls = new Hls();
+      hls.loadSource(videoSrc);
+      hls.attachMedia(video);
+      hls.on(Hls.Events.MANIFEST_PARSED, () => {
+        video.play();
+      });
+      hls.on(Hls.Events.ERROR, (event, data) => {
+        if (data.fatal) {
+          console.error('Video load failed');
+        }
+      });
+      return () => hls.destroy();
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+      video.src = videoSrc;
+      video.play();
+      video.onerror = () => {
+        console.error('Video load failed');
+      };
+    }
+  }, []);
+
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden bg-c-black">
+      <div className="absolute bottom-0 left-0 right-0 top-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] z-0"></div>
+      <div className="absolute left-0 right-0 top-[-10%] h-[1000px] w-[1000px] rounded-full bg-[radial-gradient(circle_400px_at_50%_300px,#fbfbfb36,#000)] z-0"></div>
+      
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        style={{ filter: 'saturate(0)' }}
+      />
+
+      <div
+        className="absolute top-0 left-0 right-0 h-[200px] pointer-events-none z-10"
+        style={{ background: 'linear-gradient(to bottom, black, transparent)' }}
+      />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[200px] pointer-events-none z-10"
+        style={{ background: 'linear-gradient(to top, black, transparent)' }}
+      />
+
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-gradient-radial from-c-800/20 via-c-700/10 to-transparent opacity-60 blur-3xl" />
       </div>
@@ -99,24 +151,87 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        <motion.div 
-          variants={fadeUp}
-          className="hidden lg:block relative aspect-square"
-        >
-          <div className="absolute inset-0 border border-c-800 rounded-lg overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-c-900 to-c-800">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-64 h-64">
-                  <div className="absolute inset-0 border border-c-600 rounded-full animate-[spin_20s_linear_infinite]" />
-                  <div className="absolute inset-4 border border-c-500 rounded-full animate-[spin_15s_linear_infinite_reverse]" />
-                  <div className="absolute inset-8 border border-c-400 rounded-full animate-[spin_10s_linear_infinite]" />
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-c-white rounded-full opacity-80 animate-[pulse_2s_ease-in-out_infinite]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </motion.div>
+        <motion.div
+  variants={fadeUp}
+  className="hidden lg:block relative"
+>
+  {/* Outer frame */}
+  <div className="relative overflow-hidden rounded-lg border border-c-800 bg-c-950">
+
+    {/* Corner tick marks — top left */}
+    <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-c-600 z-10" />
+    {/* Corner tick marks — top right */}
+    <div className="absolute top-3 right-3 w-4 h-4 border-t border-r border-c-600 z-10" />
+    {/* Corner tick marks — bottom left */}
+    <div className="absolute bottom-3 left-3 w-4 h-4 border-b border-l border-c-600 z-10" />
+    {/* Corner tick marks — bottom right */}
+    <div className="absolute bottom-3 right-3 w-4 h-4 border-b border-r border-c-600 z-10" />
+
+    {/* Scan line overlay */}
+    <div
+      className="absolute inset-0 z-10 pointer-events-none"
+      style={{
+        background: `repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(255,255,255,0.012) 3px,
+          rgba(255,255,255,0.012) 4px
+        )`
+      }}
+    />
+
+    {/* Vignette overlay */}
+    <div
+      className="absolute inset-0 z-10 pointer-events-none"
+      style={{
+        background: `radial-gradient(
+          ellipse at center,
+          transparent 40%,
+          rgba(0,0,0,0.65) 100%
+        )`
+      }}
+    />
+
+    {/* Bottom data label bar */}
+    <div className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 flex items-center justify-between border-t border-c-800 bg-c-950/80 backdrop-blur-sm">
+      <span
+        style={{ fontFamily: 'JetBrains Mono' }}
+        className="text-[0.60rem] tracking-[0.16em] uppercase text-c-500"
+      >
+        AI Robotic Systems
+      </span>
+      <span
+        style={{ fontFamily: 'JetBrains Mono' }}
+        className="text-[0.60rem] tracking-[0.16em] uppercase text-c-600"
+      >
+        NexusFi · Core
+      </span>
+    </div>
+
+    {/* THE IMAGE */}
+    <motion.div
+      initial={{ scale: 1.05 }}
+      whileInView={{ scale: 1.0 }}
+      transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
+      viewport={{ once: true }}
+      className="relative w-full aspect-[4/3]"
+    >
+      {/* <Image
+        src="/images/ai-arm.png"
+        alt="AI robotic white arm — NexusFi intelligent systems"
+        fill
+        priority={false}
+        quality={90}
+        className="object-cover object-center grayscale"
+        sizes="(max-width: 1024px) 100vw, 50vw"
+      /> */}
+      <img src="/0265d90b-c0a3-4cd6-9180-c4014f3c2553.png" alt="AI robotic white arm — NexusFi intelligent systems" />
+    </motion.div>
+
+  </div>
+</motion.div>
+</motion.div>
 
       <motion.div
         variants={fadeUp}
