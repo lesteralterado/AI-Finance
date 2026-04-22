@@ -158,7 +158,7 @@ export default function HeroSection() {
   className="hidden lg:block relative"
 >
   {/* Outer frame */}
-  <div className="relative overflow-hidden rounded-lg border border-c-800 bg-c-950">
+  <div className="relative overflow-hidden">
 
     {/* Corner tick marks — top left */}
     <div className="absolute top-3 left-3 w-4 h-4 border-t border-l border-c-600 z-10" />
@@ -171,32 +171,32 @@ export default function HeroSection() {
 
     {/* Scan line overlay */}
     <div
-      className="absolute inset-0 z-10 pointer-events-none"
-      style={{
-        background: `repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 3px,
-          rgba(255,255,255,0.012) 3px,
-          rgba(255,255,255,0.012) 4px
-        )`
-      }}
+      // className="absolute inset-0 z-10 pointer-events-none"
+      // style={{
+      //   background: `repeating-linear-gradient(
+      //     0deg,
+      //     transparent,
+      //     transparent 3px,
+      //     rgba(255,255,255,0.012) 3px,
+      //     rgba(255,255,255,0.012) 4px
+      //   )`
+      // }}
     />
 
     {/* Vignette overlay */}
     <div
-      className="absolute inset-0 z-10 pointer-events-none"
-      style={{
-        background: `radial-gradient(
-          ellipse at center,
-          transparent 40%,
-          rgba(0,0,0,0.65) 100%
-        )`
-      }}
+      // className="absolute inset-0 z-10 pointer-events-none"
+      // style={{
+      //   background: `radial-gradient(
+      //     ellipse at center,
+      //     transparent 40%,
+      //     rgba(0,0,0,0.65) 100%
+      //   )`
+      // }}
     />
 
     {/* Bottom data label bar */}
-    <div className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 flex items-center justify-between border-t border-c-800 bg-c-950/80 backdrop-blur-sm">
+    {/* <div className="absolute bottom-0 left-0 right-0 z-20 px-4 py-3 flex items-center justify-between border-t border-c-800 backdrop-blur-sm">
       <span
         style={{ fontFamily: 'JetBrains Mono' }}
         className="text-[0.60rem] tracking-[0.16em] uppercase text-c-500"
@@ -209,7 +209,7 @@ export default function HeroSection() {
       >
         NexusFi · Core
       </span>
-    </div>
+    </div> */}
 
     {/* THE IMAGE */}
     <motion.div
@@ -217,7 +217,7 @@ export default function HeroSection() {
       whileInView={{ scale: 1.0 }}
       transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true }}
-      className="relative w-full aspect-[4/3]"
+      className="relative aspect-[4/3]"
     >
       {/* <Image
         src="/images/ai-arm.png"
@@ -228,7 +228,7 @@ export default function HeroSection() {
         className="object-cover object-center grayscale"
         sizes="(max-width: 1024px) 100vw, 50vw"
       /> */}
-      <img src="/0265d90b-c0a3-4cd6-9180-c4014f3c2553.png" alt="AI robotic white arm — NexusFi intelligent systems" />
+      <img src="/5a07a3fa-fe91-4695-bed1-886c72425ab4.png" alt="AI robotic white arm — NexusFi intelligent systems" />
     </motion.div>
 
   </div>
